@@ -5,10 +5,8 @@ from rest_framework import routers
 from miexamen import views
 
 router = routers.DefaultRouter()
-router.register(r'usuarios',views.UsuarioViewSet)
-router.register(r'productos',views.ProductoViewSet)
-router.register(r'tiendas',views.TiendaViewSet)
-router.register(r'listados',views.ListadoViewSet)
+router.register(r'examenes',views.ExamenViewSet)
+router.register(r'listaexamenes',views.ListaExamenViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

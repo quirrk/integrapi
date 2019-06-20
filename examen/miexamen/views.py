@@ -1,19 +1,12 @@
-from .models import Usuario, Producto , Tienda, Listado 
+from .models import Examen, ListaExamen
 from rest_framework import viewsets
-from .serializers import UsuarioSerializer, ProductoSerializer, TiendaSerializer, ListadoSerializers
+from .serializers import ExamenSerializer, ListaExamenSerializer
+import json
 
-class UsuarioViewSet( viewsets.ModelViewSet ):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
+class ListaExamenViewSet( viewsets.ModelViewSet ):
+    queryset = ListaExamen.objects.all()
+    serializer_class = ListaExamenSerializer
 
-class ProductoViewSet( viewsets.ModelViewSet ):
-    queryset = Producto.objects.all()
-    serializer_class = ProductoSerializer
-
-class TiendaViewSet( viewsets.ModelViewSet ):
-    queryset = Tienda.objects.all()
-    serializer_class = TiendaSerializer
-
-class ListadoViewSet( viewsets.ModelViewSet ):
-    queryset = Listado.objects.all()
-    serializer_class = ListadoSerializers
+class ExamenViewSet( viewsets.ModelViewSet ):
+    queryset = Examen.objects.all()
+    serializer_class = ExamenSerializer

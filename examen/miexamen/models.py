@@ -1,34 +1,21 @@
 from django.db import models
+import datetime
 
-class Producto( models.Model ):
-    id_prod = models.AutoField( primary_key = True )
-    nombre_prod = models.CharField( max_length = 120, blank = False , null = False )
-    costo_pre = models.IntegerField( default= 0 )
-    costo_real = models.IntegerField( default= 0 )
-    nota = models.CharField( max_length = 200 )
+class Examen(models.Model):
+    cod_examen = models.AutoField(primary_key=True)
+    rut_entidad = models.CharField(max_length=20)
+    rut_paciente = models.CharField(max_length=20)
+    fecha_solicitud = models.DateField(auto_now_add=True, null=True)
+    fecha_entrega = models.DateField(blank=False, null=True)
+    estado = models.CharField(max_length=200)
+    rut_especialista = models.CharField(max_length=20)
 
-    def __str__( self ):
-        return self.nombre_prod
+    def __str__(self):
+        return self.cod_examen
 
-class Usuario( models.Model ):
-    id_user = models.AutoField( primary_key = True )
-    nombre_user = models.CharField( max_length = 120, blank = False , null = False )
-    correo = models.CharField( max_length = 35, blank = False , null = False )
-    contraseña = models.CharField( max_length = 50, blank = False, null = False )
+class ListaExamen(models.Model):
+    cod_examen = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=200)
 
-class Listado( models.Model ):
-    id_lista = models.AutoField( primary_key = True )
-    nombre_list = models.CharField( max_length = 80, blank = False, null = False )
-    usuario = models.ForeignKey( Usuario, blank = False, null = False, on_delete = models.CASCADE )
-    producto = models.ForeignKey( Producto, blank = False, null = False, on_delete = models.CASCADE )
-
-    def __str__( self ):
-        return self.nombre_list
-
-class Tienda( models.Model ):
-    id_tienda = models.AutoField( primary_key = True )
-    nombre_tienda = models.CharField( max_length = 80, blank = False , null = False )
-    nombre_sucur = models.CharField( max_length = 120, blank = False , null = False )
-    direccion = models.CharField( max_length = 200, blank = False , null = False )
-    ciudad = models.CharField( max_length = 50, blank = False , null = False )
-    region = models.CharField( max_length = 50, blank = False , null = False )
+    def __str__(self):
+        return self.nombre
