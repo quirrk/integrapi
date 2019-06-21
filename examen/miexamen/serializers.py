@@ -9,4 +9,4 @@ class ListaExamenSerializer( serializers.HyperlinkedModelSerializer ):
 class ExamenSerializer( serializers.HyperlinkedModelSerializer ):
     class Meta: 
         model = Examen
-        fields = ( 'cod_examen','rut_entidad','rut_paciente','fecha_solicitud', 'fecha_entrega', 'estado', 'rut_especialista')
+        fields = ( 'cod_examen', 'tipo_examen', 'rut_entidad','rut_paciente','fecha_solicitud', 'fecha_entrega', 'estado', 'rut_especialista')
